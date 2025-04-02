@@ -1,0 +1,92 @@
+services:
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - net-otel
+
+  laravel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - OTEL_PHP_AUTOLOAD_ENABLED=true
+      - OTEL_SERVICE_NAME=amds-api
+      - OTEL_RESOURCE_ATTRIBUTES=deployment.environment=prod,service.version=0.0.1
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+      - OTEL_TRACES_OTLP_ENDPOINT=http://otel-collector:4318
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql
+    networks:
+      - net-otel
+  
+  nginx:
+    image: nginx:mainline-alpine
+    ports:
+      - "8000:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - laravel
+    networks:
+      - net-otel
+  
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib
+    command:
+      - "--config=/conf/config.yaml"
+    volumes:
+      - ./etc/opentelemetry-collector-config.yaml:/conf/config.yaml
+    restart: on-failure
+    depends_on:
+      - tempo
+    networks:
+      - net-otel
+  
+  tempo:
+    image: grafana/tempo:2.4.1
+    command: [ "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
+    expose:
+      - "4317"
+      - "4318"
+    networks:
+      - net-otel
+  
+  prometheus:
+    image: prom/prometheus
+    command:
+      - --web.enable-remote-write-receiver
+      - --enable-feature=native-histograms
+      - --config.file=/etc/prometheus/prometheus.yml
+    networks:
+      - net-otel
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "8001:3000"
+    volumes:
+      - ./etc/grafana:/etc/grafana/provisioning/datasources
+      - ./etc/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml
+      - ./etc/dashboards:/etc/grafana/dashboards
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
+      GF_FEATURE_TOGGLES_ENABLE: "timeSeriesTable"
+      DS_PROMETHEUS: "prometheus"
+    networks:
+      - net-otel
+
+networks:
+  net-otel:
+    driver: bridge
