@@ -19,28 +19,18 @@ services:
       dockerfile: Dockerfile
     environment:
       - OTEL_PHP_AUTOLOAD_ENABLED=true
-      - OTEL_SERVICE_NAME=amds-api
+      - OTEL_SERVICE_NAME=laravel-apm
       - OTEL_RESOURCE_ATTRIBUTES=deployment.environment=prod,service.version=0.0.1
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
-      - OTEL_TRACES_OTLP_ENDPOINT=http://otel-collector:4318
-    volumes:
-      - .:/app
+    ports:
+      - "8000:8080"
+    env_file:
+      - .env
     depends_on:
       - mysql
     networks:
       - net-otel
-  
-  nginx:
-    image: nginx:mainline-alpine
-    ports:
-      - "8000:8080"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - laravel
-    networks:
-      - net-otel
-  
+
   otel-collector:
     image: otel/opentelemetry-collector-contrib
     command:

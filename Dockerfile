@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine AS app
+FROM php:8.4-cli-alpine AS app
 
 WORKDIR /app
 
@@ -24,3 +24,5 @@ RUN chown -R 1000:1000 /app \
     && chmod -R 755 /app/storage
 
 USER 1000
+
+CMD [ "/bin/sh", "-c", "php artisan serve --host=0.0.0.0 --port=8080" ]
