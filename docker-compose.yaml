@@ -22,6 +22,7 @@ services:
       - OTEL_SERVICE_NAME=laravel-apm
       - OTEL_RESOURCE_ATTRIBUTES=deployment.environment=prod,service.version=0.0.1
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+      - OTEL_LOGS_EXPORTER=none
     ports:
       - "8000:8080"
     env_file:

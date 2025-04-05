@@ -14,9 +14,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "open-telemetry/exporter-otlp": "^1.2",
-        "open-telemetry/opentelemetry-auto-guzzle": "^1.1",
         "open-telemetry/opentelemetry-auto-laravel": "^1.1",
-        "open-telemetry/opentelemetry-auto-psr18": "^1.1",
         "open-telemetry/sdk": "^1.2"
     },
     "require-dev": {
