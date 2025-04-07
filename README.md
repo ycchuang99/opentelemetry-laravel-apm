@@ -88,10 +88,45 @@ Configure the OpenTelemetry Collector by `etc/opentelemetry-collector-config.yam
 Opentelemetry Collector will collect traces and calculate metrics from traces using the [spanmetrics connector](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/connector/spanmetricsconnector/README.md).
 
 ```mermaid
-graph LR
-  app[App] --> otel-collector[OpenTelemetry Collector]
-  otel-collector --> tempo[Tempo]
-  otel-collector --> prometheus[Prometheus]
-  tempo --> grafana[Grafana]
-  prometheus --> grafana
+graph TB
+    subgraph "Laravel Application"
+        app[Laravel App with<br>OpenTelemetry SDK]
+    end
+    
+    subgraph "OpenTelemetry Collector"
+        receiver[OTLP Receiver]
+        processor[Batch Processor]
+        
+        subgraph "Connectors"
+            spanmetrics[SpanMetrics Connector<br>-----------------<br>Dimensions:<br>- http.method<br>- http.status_code<br>- http.route]
+        end
+        
+        exporter1[OTLP Exporter<br>To Tempo]
+        exporter2[Prometheus Remote Write<br>Exporter]
+        exporter3[Debug Exporter]
+    end
+    
+    subgraph "Storage & Visualization"
+        tempo[Tempo<br>Trace Storage]
+        prometheus[Prometheus<br>Metrics Storage]
+        grafana[Grafana<br>Dashboards]
+    end
+    
+    %% Data Flow
+    app -->|OTLP HTTP/gRPC| receiver
+    receiver --> processor
+    processor --> spanmetrics
+    processor --> exporter1
+    processor --> exporter3
+    spanmetrics -->|Derived Metrics| exporter2
+    exporter1 --> tempo
+    exporter2 --> prometheus
+    tempo --> grafana
+    prometheus --> grafana
+    
+    %% SpanMetrics Detail
+    class spanmetrics highlight
+    
+    %% Styling
+    classDef highlight fill:#e6f7ff,stroke:#333,stroke-width:2px;
 ```
