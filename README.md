@@ -128,5 +128,5 @@ graph TB
     class spanmetrics highlight
     
     %% Styling
-    classDef highlight fill:#e6f7ff,stroke:#333,stroke-width:2px;
+    classDef highlight fill:#e6f7ff,stroke:#333,stroke-width:2px,color:#000;
 ```
