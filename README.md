@@ -75,10 +75,10 @@ docker run --rm -i -u root -v $(pwd)/k6.js:/home/k6/k6.js --net host  grafana/k6
     Add the following environment variables to your application's environment.
 
     ```php
-    OTEL_PHP_AUTOLOAD_ENABLED=true
-    OTEL_SERVICE_NAME=laravel-apm
-    OTEL_RESOURCE_ATTRIBUTES=deployment.environment=prod,service.version=0.0.1
-    OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+    OTEL_PHP_AUTOLOAD_ENABLED=true    // enable PHP OpenTelemetry
+    OTEL_SERVICE_NAME=laravel-apm     // Config service name
+    OTEL_RESOURCE_ATTRIBUTES=deployment.environment=prod,service.version=0.0.1    // Config attributes
+    OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318    // Config OpenTelemetry Collector endpoint
     ```
 
 ### OpenTelemetry Collector
