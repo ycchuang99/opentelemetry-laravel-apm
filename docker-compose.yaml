@@ -45,7 +45,7 @@ services:
       - net-otel
   
   tempo:
-    image: grafana/tempo:2.4.1
+    image: grafana/tempo:2.7.2
     command: [ "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
     expose:
       - "4317"
