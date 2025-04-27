@@ -1,6 +1,6 @@
 # OpenTelemetry Laravel APM (Application Performance Management)
 
-This repository is a reference from [blueswen/opentelemetry-apm](https://github.com/blueswen/opentelemetry-apm) and provides a Laravel package for integrating OpenTelemetry into your Laravel applications. 
+This repository is a reference from [blueswen/opentelemetry-apm](https://github.com/blueswen/opentelemetry-apm) and provides a Laravel framework example.
 
 ## Overview
 
