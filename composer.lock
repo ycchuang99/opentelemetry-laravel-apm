@@ -3021,16 +3021,16 @@
         },
         {
             "name": "open-telemetry/opentelemetry-auto-laravel",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/contrib-auto-laravel.git",
-                "reference": "e2291c529a39ccffa64cb91d8afb23a9105678d9"
+                "reference": "be321c5ffc6a4db5879d77d20cb0562bb8a869a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/contrib-auto-laravel/zipball/e2291c529a39ccffa64cb91d8afb23a9105678d9",
-                "reference": "e2291c529a39ccffa64cb91d8afb23a9105678d9",
+                "url": "https://api.github.com/repos/opentelemetry-php/contrib-auto-laravel/zipball/be321c5ffc6a4db5879d77d20cb0562bb8a869a1",
+                "reference": "be321c5ffc6a4db5879d77d20cb0562bb8a869a1",
                 "shasum": ""
             },
             "require": {
@@ -3080,9 +3080,9 @@
                 "tracing"
             ],
             "support": {
-                "source": "https://github.com/opentelemetry-php/contrib-auto-laravel/tree/1.2.1"
+                "source": "https://github.com/opentelemetry-php/contrib-auto-laravel/tree/1.2.2"
             },
-            "time": "2025-05-14T00:19:47+00:00"
+            "time": "2025-06-17T23:42:05+00:00"
         },
         {
             "name": "open-telemetry/sdk",
