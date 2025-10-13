@@ -45,7 +45,7 @@ services:
       - net-otel
   
   tempo:
-    image: grafana/tempo:2.8.2
+    image: grafana/tempo:2.9.0
     volumes:
       - ./etc/tempo.yaml:/etc/tempo.yaml
     command: [ "-config.file=/etc/tempo.yaml", "--target=all", "--storage.trace.backend=local", "--storage.trace.local.path=/var/tempo", "--auth.enabled=false" ]
