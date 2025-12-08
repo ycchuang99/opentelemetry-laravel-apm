@@ -14,7 +14,7 @@ RUN pecl install opentelemetry redis; \
     docker-php-ext-install -j$(nproc) zip pdo pdo_mysql bcmath; \
     docker-php-ext-enable opentelemetry redis;
 
-COPY --from=composer:2.8 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:2.9 /usr/bin/composer /usr/local/bin/composer
 
 COPY . .
 
