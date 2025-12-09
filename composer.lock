@@ -3100,16 +3100,16 @@
         },
         {
             "name": "open-telemetry/sdk",
-            "version": "1.9.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/sdk.git",
-                "reference": "8986bcbcbea79cb1ba9e91c1d621541ad63d6b3e"
+                "reference": "3dfc3d1ad729ec7eb25f1b9a4ae39fe779affa99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/sdk/zipball/8986bcbcbea79cb1ba9e91c1d621541ad63d6b3e",
-                "reference": "8986bcbcbea79cb1ba9e91c1d621541ad63d6b3e",
+                "url": "https://api.github.com/repos/opentelemetry-php/sdk/zipball/3dfc3d1ad729ec7eb25f1b9a4ae39fe779affa99",
+                "reference": "3dfc3d1ad729ec7eb25f1b9a4ae39fe779affa99",
                 "shasum": ""
             },
             "require": {
@@ -3189,11 +3189,11 @@
             ],
             "support": {
                 "chat": "https://app.slack.com/client/T08PSQ7BQ/C01NFPCV44V",
-                "docs": "https://opentelemetry.io/docs/php",
+                "docs": "https://opentelemetry.io/docs/languages/php",
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-10-02T23:44:28+00:00"
+            "time": "2025-11-25T10:59:15+00:00"
         },
         {
             "name": "open-telemetry/sem-conv",
