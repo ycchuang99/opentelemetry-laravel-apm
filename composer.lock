@@ -2780,16 +2780,16 @@
         },
         {
             "name": "open-telemetry/api",
-            "version": "1.7.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/api.git",
-                "reference": "610b79ad9d6d97e8368bcb6c4d42394fbb87b522"
+                "reference": "6f8d237ce2c304ca85f31970f788e7f074d147be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/api/zipball/610b79ad9d6d97e8368bcb6c4d42394fbb87b522",
-                "reference": "610b79ad9d6d97e8368bcb6c4d42394fbb87b522",
+                "url": "https://api.github.com/repos/opentelemetry-php/api/zipball/6f8d237ce2c304ca85f31970f788e7f074d147be",
+                "reference": "6f8d237ce2c304ca85f31970f788e7f074d147be",
                 "shasum": ""
             },
             "require": {
@@ -2799,7 +2799,7 @@
                 "symfony/polyfill-php82": "^1.26"
             },
             "conflict": {
-                "open-telemetry/sdk": "<=1.0.8"
+                "open-telemetry/sdk": "<=1.11"
             },
             "type": "library",
             "extra": {
@@ -2809,7 +2809,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "1.7.x-dev"
+                    "dev-main": "1.8.x-dev"
                 }
             },
             "autoload": {
@@ -2842,11 +2842,11 @@
             ],
             "support": {
                 "chat": "https://app.slack.com/client/T08PSQ7BQ/C01NFPCV44V",
-                "docs": "https://opentelemetry.io/docs/php",
+                "docs": "https://opentelemetry.io/docs/languages/php",
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-10-02T23:44:28+00:00"
+            "time": "2026-02-25T13:24:05+00:00"
         },
         {
             "name": "open-telemetry/context",
@@ -3036,24 +3036,24 @@
         },
         {
             "name": "open-telemetry/opentelemetry-auto-laravel",
-            "version": "1.4.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/contrib-auto-laravel.git",
-                "reference": "fa6e0c9189cf559a5d83983bc313eea16d2b6b52"
+                "reference": "4dbf215ac9caee21a7b4c2f1d819a3bf4bbba6bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/contrib-auto-laravel/zipball/fa6e0c9189cf559a5d83983bc313eea16d2b6b52",
-                "reference": "fa6e0c9189cf559a5d83983bc313eea16d2b6b52",
+                "url": "https://api.github.com/repos/opentelemetry-php/contrib-auto-laravel/zipball/4dbf215ac9caee21a7b4c2f1d819a3bf4bbba6bb",
+                "reference": "4dbf215ac9caee21a7b4c2f1d819a3bf4bbba6bb",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-opentelemetry": "*",
-                "laravel/framework": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0",
-                "open-telemetry/api": "^1.6",
-                "open-telemetry/sem-conv": "^1.32",
+                "laravel/framework": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
+                "open-telemetry/api": "^1.8",
+                "open-telemetry/sem-conv": "^1.38",
                 "php": "^8.1"
             },
             "require-dev": {
@@ -3089,7 +3089,7 @@
                 "Apache-2.0"
             ],
             "description": "OpenTelemetry auto-instrumentation for Laravel",
-            "homepage": "https://opentelemetry.io/docs/php",
+            "homepage": "https://opentelemetry.io/docs/languages/php/",
             "keywords": [
                 "instrumentation",
                 "laravel",
@@ -3099,9 +3099,9 @@
                 "tracing"
             ],
             "support": {
-                "source": "https://github.com/opentelemetry-php/contrib-auto-laravel/tree/1.4.0"
+                "source": "https://github.com/opentelemetry-php/contrib-auto-laravel/tree/1.7.0"
             },
-            "time": "2025-09-23T23:14:02+00:00"
+            "time": "2026-04-29T13:32:51+00:00"
         },
         {
             "name": "open-telemetry/sdk",
@@ -3202,16 +3202,16 @@
         },
         {
             "name": "open-telemetry/sem-conv",
-            "version": "1.32.0",
+            "version": "1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opentelemetry-php/sem-conv.git",
-                "reference": "16585cc0dbc3032a318e274043454679430d2ebf"
+                "reference": "e613bc640a407def4991b8a936a9b27edd9a3240"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/sem-conv/zipball/16585cc0dbc3032a318e274043454679430d2ebf",
-                "reference": "16585cc0dbc3032a318e274043454679430d2ebf",
+                "url": "https://api.github.com/repos/opentelemetry-php/sem-conv/zipball/e613bc640a407def4991b8a936a9b27edd9a3240",
+                "reference": "e613bc640a407def4991b8a936a9b27edd9a3240",
                 "shasum": ""
             },
             "require": {
@@ -3251,11 +3251,11 @@
             ],
             "support": {
                 "chat": "https://app.slack.com/client/T08PSQ7BQ/C01NFPCV44V",
-                "docs": "https://opentelemetry.io/docs/php",
+                "docs": "https://opentelemetry.io/docs/languages/php",
                 "issues": "https://github.com/open-telemetry/opentelemetry-php/issues",
                 "source": "https://github.com/open-telemetry/opentelemetry-php"
             },
-            "time": "2025-05-05T03:58:53+00:00"
+            "time": "2026-01-21T04:14:03+00:00"
         },
         {
             "name": "php-http/discovery",
